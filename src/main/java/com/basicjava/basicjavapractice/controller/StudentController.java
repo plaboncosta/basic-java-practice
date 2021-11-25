@@ -1,6 +1,6 @@
 package com.basicjava.basicjavapractice.controller;
 
-import com.basicjava.basicjavapractice.model.StudentModel;
+import com.basicjava.basicjavapractice.model.Student;
 import com.basicjava.basicjavapractice.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<StudentModel> getStudent() {
+    public List<Student> getStudent() {
         return studentService.getStudent();
     }
 }

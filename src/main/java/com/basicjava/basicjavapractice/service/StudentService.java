@@ -1,22 +1,22 @@
 package com.basicjava.basicjavapractice.service;
 
-import com.basicjava.basicjavapractice.model.StudentModel;
+import com.basicjava.basicjavapractice.model.Student;
+import com.basicjava.basicjavapractice.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class StudentService {
-    public List<StudentModel> getStudent() {
-        return List.of(
-                new StudentModel(
-                        1L,
-                        "Plabon Joseph Costa",
-                        "plabon@gmail.com",
-                        LocalDate.of(1998, 9, 8),
-                        23
-                )
-        );
+    private final StudentRepository studentRepository;
+
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    public List<Student> getStudent() {
+        return studentRepository.findAll();
     }
 }
